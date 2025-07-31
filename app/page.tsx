@@ -10,6 +10,7 @@ import { Separator } from "@/components/ui/separator"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { MessageSquare, Wallet, Send, Globe } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
+import { AuthButton } from '@/components/AuthButton';
 
 interface GuestbookEntry {
   id: string
@@ -173,9 +174,7 @@ export default function WorldChainGuestbook() {
           </CardHeader>
           <CardContent>
             {!isConnected ? (
-              <Button onClick={connectWallet} disabled={isLoading} className="w-full sm:w-auto">
-                {isLoading ? "Connecting..." : "Connect Wallet"}
-              </Button>
+              <AuthButton />
             ) : (
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
